@@ -1,0 +1,26 @@
+<p><label class="highlight">Home <span class="not-poo">🏡</span></label> Component Works!</p>
+<p>The <b>Home</b> component and the <b>Not Found</b> belongs to the app-module. The <b>Module1</b> and <b>Module2</b> components belong to their own modules respectively. Those modules are not loaded until their routes are activated.</p>
+<p>Lazy loading components and modules is fairly straightforward but takes some planning. Basically, the app-routing.module.ts file is where most of the magic happens:</p>
+<pre>
+const routes: Routes = [
+&#123;
+  path: 'module1',
+  loadChildren: () =>
+    import('./module1/module1.module').then((m) => m.Module1Module),
+    // The Module 1 component belongs to the Module 1 module!
+},
+&#123;
+  path: 'module2',
+  loadChildren: () =>
+    import('./module2/module2.module').then((m) => m.Module2Module),
+    // The Module 2 component belongs to the Module 2 module!
+},
+&#123;
+  path: '',
+  component: HomeComponent,
+},
+&#123;
+  path: '**',
+  component: NotFoundComponent,
+},
+];

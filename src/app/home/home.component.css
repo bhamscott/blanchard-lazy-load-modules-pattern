@@ -1,0 +1,11 @@
+.highlight {
+  background: #eee;
+  border: 1px solid;
+  padding: 5px;
+  font-weight: bold;
+  /* margin: -10px 5px 0 0; */
+  display: inline-block;
+}
+.not-poo {
+  font-size: 1.5rem;
+}
